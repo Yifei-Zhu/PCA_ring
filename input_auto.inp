@@ -1,0 +1,148 @@
+#start_nu = 1
+#end_nu = 1000
+start_nu = 574
+end_nu = 599
+###auto options
+auto = yes
+limit_end = 1000
+###
+total_avail_cores = 116
+single_task_num_cores = 2
+cut_off_cores = 8
+work_limit = 2
+
+optgjf = freq.gjf
+
+#[restart] options
+# 0 - Do not restart
+# 1 - Restart the jobs without hopping and insufficient steps 
+# 2 - Restart the jobs without hopping but has enough steps
+# Tips:
+# A: Restart jobs that died due to time constraints [restart = 1]
+# B: Restart jobs in error [restart = 1]
+# C: Restart jobs to extend the time [restart = 2]
+restart = 0
+
+
+##If you restart, remember to modify [step]
+step = 3000
+#step = 2000
+##all_dir = /data/home/zhuyf/completed_0109/
+##all_dir = /data/home/zhuyf/test/
+all_dir = /data/home/zhuyf/cytosine_all/work/
+##all_dir = /data/home/zhuyf/worktest/
+##all_dir = /data/home/zhuyf/error_restart2/
+##all_dir = /data/home/zhuyf/941_1000_1.5ps_restart/
+
+jade_patch_dir = /data/home/zhuyf/homemade_jade_patch/jp5_test/
+
+####If there are not enough nodes, they will be queued at the following nodes#####
+backup_queue0 = eth
+backup_node0 = node93
+backup_run_num0 =  10
+
+backup_queue1 = eth
+backup_node1 = node96
+backup_run_num1 =  5000
+queue_node_num = 2 
+
+###The number of cores used
+n_pro = 4
+
+###Descriptors
+
+remake_after_block = no
+#([remake_block]: all or specific number ( e.g.:remake_block = 1,2,4 or none ))
+remake_block = 1
+#([remake_partition_nu]: Only one block can be divided at the same time.So it can only be one number.)
+remake_partition_nu = 1
+
+whether_on_ring = no
+remove_Oxygen_atom = no
+
+Coulomb_matrix = no
+Dihedral_angle = yes
+H_Dihedral_angle = no
+Bond_length = no
+H_Bond_length = no
+Angle = no
+H_Angle = no
+
+#Dimension reduction methods
+#1 PCA
+PCA = yes
+[eg: pca_n_components = mle or a int]
+pca_n_components = 3
+pca_main_dim_nu = 3
+#PCA plot option
+# 0 - no
+# 1 - yes
+# 2 - yes and show
+plot_2D = 1
+plot_3D = 1
+plot_components = 1
+plot_variance_ratio = 1
+#2 classical MDS
+classical_MDS = yes
+dimension_of_classical_mds = 2
+#3 Isomap
+Isomap = no
+dimension_of_Isomap = 2
+n_neighbors = 5
+
+
+###partition_5.py & dbscan_5_2py
+#
+#The following parameters are used for both .py codes
+partition_descriptor = D
+partition_method = PCA
+first_dim = 1
+second_dim =2
+#
+#The following parameters are only used for dbscan_5_2.py
+dbscan_min_samples=8
+dbscan_eps=50
+#
+#The following parameters are only used for optics_5_3.py
+#optics_eps:None or float
+optics_min_samples=5
+optics_eps=None
+#
+#The following parameters are only used for partition_5.py
+nu_block = 2
+
+xmin1=-60
+xmax1=-10
+ymin1=30
+ymax1=100
+
+xmin2=60
+xmax2=180
+ymin2=-20
+ymax2=60
+
+xmin3=240
+xmax3=330
+ymin3=-160
+ymax3=-60
+
+xmin4=0
+xmax4=100
+ymin4=200
+ymax4=400
+
+xmin5=240
+xmax5=400
+ymin5=-80
+ymax5=80
+
+xmin6=-80
+xmax6=60
+ymin6=-80
+ymax6=20
+
+
+###chirality_6.py
+Chirality = yes
+#([Cjiral_block]: e.g.- Chiral_block = 1,4,5)
+Chiral_block = 1

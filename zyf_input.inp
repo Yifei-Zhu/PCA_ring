@@ -1,0 +1,134 @@
+start_nu = 1
+end_nu = 1000
+#start_nu = 530
+#end_nu = 668
+
+###auto options
+auto = no
+limit_end = 1000
+###
+total_avail_cores = 116
+single_task_num_cores = 2
+work_limit = 50
+
+optgjf = freq.gjf
+
+#[restart] options
+# 0 - Do not restart
+# 1 - Restart the jobs without hopping and insufficient steps 
+# 2 - Restart the jobs without hopping but has enough steps
+# Tips:
+# A: Restart jobs that died due to time constraints [restart = 1]
+# B: Restart jobs in error [restart = 1]
+# C: Restart jobs to extend the time [restart = 2]
+restart = 0
+
+##If you restart, remember to modify [step]
+step = 3000
+#step = 2000
+##all_dir = /data/home/zhuyf/completed_0109/
+all_dir = /data/home/zhuyf/all_work/
+##all_dir = /data/home/zhuyf/cytosine_all/work/
+
+jade_patch_dir = /data/home/zhuyf/homemade_jade_patch/jp6_test/
+
+####If there are not enough nodes, they will be queued at the following nodes#####
+backup_queue0 = eth
+backup_node0 = node93
+backup_run_num0 =  10
+queue_node_num = 1
+
+###The number of cores used
+n_pro = 4
+
+###Descriptors
+S0_involve = no
+
+remake_after_block = no
+remake_after_cluster = yes
+
+#([remake_block]: This parameter is only used in pca_4_1.py. Specific numbers or None.( e.g.:remake_block = 1,2,4/remake_block =None))
+remake_block = 1
+#([remake_operate_nu]: Only one block can be divided at the same time. So it can only be one number.)
+#And both partition_5.py and cluster_all.py use this parameter!
+remake_operate_nu = 1
+
+
+#Remove Option
+#([remove_list]: The number of the atom you want to remove（e.g.:remove_list = 6,9 or None))
+#([keep_list]: The number of the atom you want to retain.
+#At least one of the two options is [None]
+remove_list = none
+keep_list = 6,9
+#
+
+#([structural_descriptor]:
+# D - Dihedral_angle; B - Bond_length; A - Angle; H is to indicate whether it contains H atoms.
+# {'d':'D', 'hd':'H_D', 'a':'A', 'ha':'H_A', 'r':'R', 'hr':'H_R'})
+structural_descriptor = d,a,r
+
+Coulomb_matrix = no
+
+#Dimension reduction methods
+#1 PCA
+PCA = yes
+#[eg: pca_n_components = mle or a int]
+pca_n_components = 3
+pca_main_dim_nu = 3
+#PCA plot option
+# 0 - no
+# 1 - yes
+# 2 - yes and show
+plot_2D = 1
+plot_3D = 1
+plot_components = 1
+plot_variance_ratio = 1
+#2 classical MDS
+classical_MDS = yes
+dimension_of_classical_mds = 2
+#3 Isomap
+Isomap = no
+dimension_of_Isomap = 2
+n_neighbors = 5
+
+
+###partition_5.py & cluster_all.py
+#
+#The following parameters are used for both .py codes
+partition_descriptor = D
+partition_method = PCA
+first_dim = 1
+second_dim =2
+
+#
+#The following parameters are only used for partition_5.py
+nu_block = 1
+
+xmin1=150
+xmax1=360
+ymin1=-360
+ymax1=360
+
+xmin2=-40
+xmax2=80
+ymin2=-360
+ymax2=360
+
+xmin3=-100
+xmax3=100
+ymin3=240
+ymax3=340
+
+#Available methods(abbreviation):
+# Kmeans(km) / MiniBatchKmeans(mb) / MeansShift(ms) / AffinityPropagation(ap) /
+# DBSCAN(db) / OPTICS(op) / BIRCH(bi) / HierarchicalClustering(hi)
+cluster_method = hi
+
+
+###chirality_6.py
+Chirality = yes
+#([Chiral_basis]:Chiral rotation is carried out on the basis of clustering(d) or partition(p))
+Chiral_basis = d
+#([Cjiral_block]: e.g.- Chiral_block = 1,4,5)
+Chiral_block = 1
+

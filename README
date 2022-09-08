@@ -1,0 +1,3 @@
+./main_all.py is the main code file to control these sub-codes.
+./sub/ includes all sub-codes;
+./input.inp is the input file.

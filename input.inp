@@ -1,51 +1,38 @@
-start_nu = 1
-end_nu = 1000
-#start_nu = 530
-#end_nu = 668
+start_nu = 1    #the first trajectory
+end_nu = 1000   #the last trajectory
 
-###auto options
-auto = no
-limit_end = 1000
-###
-total_avail_cores = 116
-single_task_num_cores = 2
-work_limit = 50
-
-optgjf = freq.gjf
-
-#[restart] options
-# 0 - Do not restart
-# 1 - Restart the jobs without hopping and insufficient steps 
-# 2 - Restart the jobs without hopping but has enough steps
-# Tips:
-# A: Restart jobs that died due to time constraints [restart = 1]
-# B: Restart jobs in error [restart = 1]
-# C: Restart jobs to extend the time [restart = 2]
-restart = 0
-
-##If you restart, remember to modify [step]
-step = 3000
-#step = 2000
-##all_dir = /data/home/zhuyf/completed_0109/
-all_dir = /data/home/zhuyf/all_work/
-##all_dir = /data/home/zhuyf/cytosine_all/work/
-
-jade_patch_dir = /data/home/zhuyf/homemade_jade_patch/jp6_test/
-
-####If there are not enough nodes, they will be queued at the following nodes#####
-backup_queue0 = eth
-backup_node0 = node93
-backup_run_num0 =  10
-queue_node_num = 1
-
-###The number of cores used
+###Please ignore these parameters, which are related to the dynamics simulation.
+auto =      
+limit_end = 
+total_avail_cores =
+single_task_num_cores =
+work_limit =
+backup_queue0 = 
+backup_node0 = 
+backup_run_num0 =  
+queue_node_num = 
 n_pro = 4
+restart = 0
+###
+
+optgjf = freq.gjf   ###Gaussian opt template 
+
+
+step = 3000  # the total steps of the dynamics simulation 
+
+
+
+all_dir = /data/home/zhuyf/all_work/  # main path
+
+jade_patch_dir = /data/home/zhuyf/homemade_jade_patch/jp6_test/  # the path of codes
+
+
 
 ###Descriptors
-S0_involve = yes
+S0_involve = yes   #whether it contains atoms or not
 
-remake_after_block = no
-remake_after_cluster = yes
+remake_after_block = no    #perform further analysis based on the block?
+remake_after_cluster = yes #perform further analysis based on the cluster?
 
 #([remake_block]: This parameter is only used in pca_4_1.py. Specific numbers or None.( e.g.:remake_block = 1,2,4/remake_block =None))
 remake_block = 1

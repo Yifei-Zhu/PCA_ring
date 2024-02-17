@@ -29,7 +29,7 @@ jade_patch_dir = /data/home/zhuyf/homemade_jade_patch/jp6_test/  # the path of c
 
 
 ###Descriptors
-S0_involve = yes   #whether it contains atoms or not
+S0_involve = yes   #whether it contains corresponding S0 geoms or not
 
 remake_after_block = no    #perform further analysis based on the block?
 remake_after_cluster = yes #perform further analysis based on the cluster?
@@ -52,7 +52,7 @@ keep_list = 6,9
 #([structural_descriptor]:
 # D - Dihedral_angle; B - Bond_length; A - Angle; H is to indicate whether it contains H atoms.
 # {'d':'D', 'hd':'H_D', 'a':'A', 'ha':'H_A', 'r':'R', 'hr':'H_R'})
-structural_descriptor = a
+structural_descriptor = d
 
 Coulomb_matrix = no
 
